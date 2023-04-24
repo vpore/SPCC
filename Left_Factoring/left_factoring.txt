@@ -1,0 +1,3 @@
+A-->am|an|c|d
+B-->bx|by|bz
+C-->epsilon

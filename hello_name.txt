@@ -1,0 +1,15 @@
+%{
+    string name;
+%}
+
+%%
+    printf("Hello %s", name);
+%%
+
+int yywrap() {}
+
+int main() {
+    printf("Enter name : ");
+    scanf("%s", &name);
+    yylex();
+}

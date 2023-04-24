@@ -1,0 +1,25 @@
+%{
+    int flag = 0;
+    void display(int x, char *y);
+%}
+
+%%
+    (int|float|double|string|char) {flag = 0; display(flag, yytext);}
+    [A-Za-z][A-Za-z0-9]* {flag = 1; display(flag, yytext);}
+    [,;] {flag = 2; display(flag, yytext);}
+    [+-=*/] {flag = 3; display(flag, yytext);}
+    . [-]*[0-9]+ {flag = 4; display(flag, yytext);}
+%%
+
+int yywrap() {}
+
+int main() {
+    printf("Enter expression : ");
+    yylex();
+}
+
+void display(int flag, char *c) {
+    if(flag == 0) {printf("%s is a keyword\n", c);}
+
+    else if()
+}
